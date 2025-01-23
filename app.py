@@ -1,16 +1,9 @@
 from fastapi import FastAPI
 
-from pydantic import BaseModel
+
 
 
 app = FastAPI()
-
-
-class InputData(BaseModel):
-
-    input_text: str
-
-
 
 @app.get("/")
 
