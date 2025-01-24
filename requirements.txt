@@ -1,4 +1,4 @@
 fastapi
-torch==2.0.1+cpu 
+torch 
 uvicorn[standart]
 
