@@ -9,8 +9,8 @@ def main():
 
 
 
-    tokenizer = T5Tokenizer.from_pretrained("t5-base") 
-    model = T5ForConditionalGeneration.from_pretrained("t5-base")
+    tokenizer = AutoTokenizer.from_pretrained("gpt2") 
+    model = AutoModelForCausalLM.from_pretrained("gpt2")
     inputs = tokenizer(data.input_text, return_tensors="pt", padding=True, truncation=True)
     
     
