@@ -1,6 +1,5 @@
-fastapi
 torch
+torchvision
 transformers
-uvicorn[standart]
-streamlit 
-flask
+torchaudio
+streamlit
