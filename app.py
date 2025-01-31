@@ -9,10 +9,8 @@ def main():
 
 
 
-    MODEL_NAME = "t5-base" 
-    tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
-    
-    model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
+    tokenizer = T5Tokenizer.from_pretrained("t5-base") 
+    model = T5ForConditionalGeneration.from_pretrained("t5-base")
     inputs = tokenizer(data.input_text, return_tensors="pt", padding=True, truncation=True)
     
     
