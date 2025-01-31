@@ -5,8 +5,7 @@ def main():
     st.title("Hugging Face Model Demo")
 
     # Create an input text box
-    input_text = st.text_input("Enter your text", "")
-
+    input_text = "halo"
 
 
     tokenizer = AutoTokenizer.from_pretrained("gpt2") 
