@@ -1,5 +1,5 @@
 import streamlit as st
-from transformers import pipeline
+from transformers import pipeline,  T5Tokenizer, T5ForConditionalGeneration
 
 def main():
     st.title("Hugging Face Model Demo")
@@ -7,13 +7,24 @@ def main():
     # Create an input text box
     input_text = st.text_input("Enter your text", "")
 
-    model = pipeline("sentiment-analysis")
 
-    # Create a button to trigger model inference
+
+    MODEL_NAME = "t5-base" 
+    tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
+    
+    model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
+    inputs = tokenizer(data.input_text, return_tensors="pt", padding=True, truncation=True)
+    
+    
+    outputs = model.generate(**inputs, max_length=50, num_beams=5, early_stopping=True)
+    
+    generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    
     if st.button("Analyze"):
-        # Perform inference using the loaded model
-        result = model(input_text)
-        st.write("Prediction:", result[0]['label'], "| Score:", result[0]['score'])
+        outputs = model.generate(**inputs, max_length=50, num_beams=5, early_stopping=True)    
+        generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        st.write("Prediction:",generated_text)
 
 if __name__ == "__main__":
     main()
