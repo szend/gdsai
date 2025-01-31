@@ -10,7 +10,7 @@ def main():
 
     tokenizer = AutoTokenizer.from_pretrained("gpt2") 
     model = AutoModelForCausalLM.from_pretrained("gpt2")
-    inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
+    inputs = tokenizer("halo", return_tensors="pt", padding=True, truncation=True)
     
     
     outputs = model.generate(**inputs, max_length=50, num_beams=5, early_stopping=True)
