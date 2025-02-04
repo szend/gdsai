@@ -7,13 +7,13 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 app = FastAPI()
 
 @app.get("/test")
-def read_root(): 
+async def read_root(): 
    
     return {"generated_text": "ok"}
 
 
 @app.get("/")
-def read_root(): 
+async def read_root(): 
     MODEL_NAME = "t5-small" 
     tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
 
