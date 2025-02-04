@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import torch  
 from concurrent.futures import ThreadPoolExecutor  
-
+import asyncio
 
 MODEL_NAME = "t5-small" 
 tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, use_fast=True)
