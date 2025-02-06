@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import torch
 
-MODEL_NAME = "t5-small" 
-tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, use_fast=True)
+MODEL_NAME = "google/t5-v1_1-tiny" 
+tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME,use_fast=True, token="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")
 
 model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
 
